@@ -45,13 +45,13 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  --background: oklch(0.995 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  --primary: oklch(0.7402 0.1632 55.38);
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -121,6 +121,6 @@
   }
   
   .single-char-link {
-    @apply bg-accent text-accent-foreground px-2 py-1 rounded-full hover:underline hover:scale-105 transition-all duration-100 !text-foreground !no-underline;
+    @apply bg-card text-card-foreground px-2 py-1 rounded-full hover:underline hover:scale-105 transition-all duration-100 !text-foreground !no-underline border-input border;
   }
 }

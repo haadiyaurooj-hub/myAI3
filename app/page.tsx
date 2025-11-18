@@ -137,12 +137,19 @@ export default function Chat() {
   }
 
   return (
-    <div className="flex h-screen items-center justify-center bg-white font-sans dark:bg-black">
+    <div className="flex h-screen items-center justify-center font-sans dark:bg-black">
       <main className="flex w-full flex-col dark:bg-black h-screen">
         <ChatHeader>
           <ChatHeaderBlock />
           <ChatHeaderBlock className="justify-center items-center">
-            <Image src="/bit.png" alt="Logo" width={36} height={36} />
+            <Avatar
+              className="size-8 ring-1 ring-primary"
+            >
+              <AvatarImage src="/bit.png" />
+              <AvatarFallback>
+                <Image src="/bit.png" alt="Logo" width={36} height={36} />
+              </AvatarFallback>
+            </Avatar>
             <p className="tracking-tight">Chat with {AI_NAME}</p>
           </ChatHeaderBlock>
           <ChatHeaderBlock className="justify-end">
@@ -163,20 +170,20 @@ export default function Chat() {
               <>
                 <MessageWall messages={messages} status={status} durations={durations} onDurationChange={handleDurationChange} />
                 {status === "submitted" && (
-                  <div className="flex justify-start max-w-3xl w-full">
+                  <div className="flex justify-start max-w-2xl w-full">
                     <Loader2 className="size-4 animate-spin text-muted-foreground" />
                   </div>
                 )}
               </>
             ) : (
-              <div className="flex justify-center max-w-3xl w-full">
+              <div className="flex justify-center max-w-2xl w-full">
                 <Loader2 className="size-4 animate-spin text-muted-foreground" />
               </div>
             )}
           </div>
         </div>
         <div className="w-full px-5 pt-5 pb-1 items-center flex justify-center">
-          <div className="max-w-3xl w-full">
+          <div className="max-w-2xl w-full">
             <form id="chat-form" onSubmit={form.handleSubmit(onSubmit)}>
               <FieldGroup>
                 <Controller
@@ -191,7 +198,7 @@ export default function Chat() {
                         <Input
                           {...field}
                           id="chat-form-message"
-                          className="h-13 pr-12"
+                          className="h-15 pr-15 pl-5 bg-card rounded-[20px]"
                           placeholder="Type your message here..."
                           disabled={status === "streaming"}
                           aria-invalid={fieldState.invalid}
@@ -205,7 +212,7 @@ export default function Chat() {
                         />
                         {(status == "ready" || status == "error") && (
                           <Button
-                            className="absolute right-2 top-2"
+                            className="absolute right-3 top-3 rounded-full"
                             type="submit"
                             disabled={!field.value.trim()}
                             size="icon"
@@ -215,7 +222,7 @@ export default function Chat() {
                         )}
                         {(status == "streaming" || status == "submitted") && (
                           <Button
-                            className="absolute right-2 top-2"
+                            className="absolute right-2 top-2 rounded-full"
                             size="icon"
                             onClick={() => {
                               stop();
@@ -232,7 +239,7 @@ export default function Chat() {
             </form>
           </div>
         </div>
-        <div className="w-full px-5 py-1 items-center flex justify-center text-xs text-muted-foreground">
+        <div className="w-full px-5 py-3 items-center flex justify-center text-xs text-muted-foreground">
           © {new Date().getFullYear()} Daniel M. Ringel&nbsp;<Link href="/terms" className="underline">Terms of Use</Link>
         </div>
       </main>
