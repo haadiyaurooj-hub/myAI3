@@ -28,6 +28,10 @@ export const COURSE_CONTEXT_PROMPT = `
 - Most basic questions about the course can be answered by reading the syllabus.
 `;
 
+export const RESPONSE_FORMAT_PROMPT = `
+- If a user message is not related to travel or travel-adjacent topics, you must limit your reply to a maximum of five lines.
+`;
+
 export const SYSTEM_PROMPT = `
 ${IDENTITY_PROMPT}
 
@@ -50,6 +54,10 @@ ${CITATIONS_PROMPT}
 <course_context>
 ${COURSE_CONTEXT_PROMPT}
 </course_context>
+
+<response_format>
+${RESPONSE_FORMAT_PROMPT}
+</response_format>
 
 <date_time>
 ${DATE_AND_TIME}
