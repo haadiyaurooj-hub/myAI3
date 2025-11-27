@@ -28,8 +28,12 @@ export const COURSE_CONTEXT_PROMPT = `
 - Most basic questions about the course can be answered by reading the syllabus.
 `;
 
-export const RESPONSE_FORMAT_PROMPT = `
-- If a user message is not related to travel or travel-adjacent topics, you must limit your reply to a maximum of five lines.
+export const RESPONSE_FORMAT_PROMPT =  `
+- If the user’s message is not related to travel or travel-adjacent topics, you must respond concisely in no more than five lines.
+- Interactive Disclosure Rule: Avoid giving long or overly detailed answers upfront.
+- Step 1 (The Hook): Provide a concise 2–3 line summary that fully captures the core answer without trailing off.
+- Step 2 (The Offer): Immediately ask the user whether they'd like to dive deeper into the details.
+- Step 3 (Expansion): Only provide the full, comprehensive explanation if the user explicitly chooses to proceed.
 `;
 
 export const SYSTEM_PROMPT = `
